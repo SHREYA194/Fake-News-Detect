@@ -1,26 +1,28 @@
-﻿<!DOCTYPE html>
+﻿{% load static %}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fact Detector</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
     <div class="mainHome">
         <nav>
-            <img src="images/Rightlogo.png" style="width:70px; height:80px; padding-left:78px; position:fixed; top: 0">
+            <img src="{% static 'images/Rightlogo.png' %}" style="width:70px; height:80px; padding-left:78px; position:fixed; top: 0">
             <h1 style="font-family: cursive; font-size: 40px; top:0; line-height:80px; font-style:italic; color:rgba(230, 139, 54, 0.945);
             padding-left:150px; float:left; position:fixed">
                 Fact Detector
             </h1>
             <ul>
-                <li><a href="Home.html">Home</a></li>
-                <li><a href="about_us.html">About Us</a></li>
-                <li><a href="Registration and LogIn.html">Log In / Sign Up</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="{% url 'Home' %}">Home</a></li>
+                <li><a href="{% url 'AboutUs' %}">About Us</a></li>
+                <li><a href="{% url 'LogIn/SignUp' %}">Log In / Sign Up</a></li>
+                <li><a href="{% url 'ContactUs' %}">Contact Us</a></li>
             </ul>
         </nav>
     </div>
