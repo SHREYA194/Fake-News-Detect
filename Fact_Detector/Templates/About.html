@@ -1,0 +1,46 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+    <title>About Us</title>
+</head>
+
+<body>
+    <div class="main">
+        <nav>
+            <img src="{% static 'images/Rightlogo.png' %}" style="width:70px; height:80px; padding-left:78px; position:fixed; top: 0">
+            <h1 style="font-family:cursive; font-size:40px; top:0; line-height:80px; font-style:italic; color:rgba(230, 139, 54, 0.945);
+            padding-left:150px; float:left; position:fixed">
+                Fact Detector
+            </h1>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %">About Us</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}">Log Out</a></li>
+                {% else %}
+                <li><a href="{% url 'Registration' %}">Log In / Sign Up </a></li>
+                {% endif %}
+                <li><a href="{% url 'contact' %}">Contact Us</a></li>
+            </ul>
+        </nav>
+       
+        <div class="about-section">
+            <div class="inner-container" style="padding:50px;">
+                <h1 style="font-size:35px;">About Us</h1>
+                <p class="text" style="font-size:20px;"> 
+                    Our website is about detecting fact from text based news.
+                    You can paste the text or url and write the text news in it.
+                    And you will get the result that news is fake or real with the accuracy.
+                    For any query you can contact us on our one of the section contact us.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

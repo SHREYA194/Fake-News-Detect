@@ -1,0 +1,174 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detector</title>
+
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+
+    <style>
+               
+
+        .bar {
+            margin: 200px;
+            width: 590px;
+            border-radius: 150px;
+            background-color: white;
+            border: 1px solid #615e5e;
+        }
+
+            .bar:hover {
+                box-shadow: 1px 1px 8px 1px none;
+            }
+            
+            .bar:focus {
+                box-shadow: 1px 1px 8px 1px none;
+                outline: none;
+            }
+
+        .searchbar {
+            height: 35px;
+            border: 2px;
+            width: 500px;
+            background-color: white;
+            font-size: 18px;
+            outline: none;
+            
+        }
+
+        .searchicon {
+            height: 30px;
+            position: relative;
+            top: 5px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <img src="{% static 'images/Rightlogo.png' %}" style="width:70px;height:80px;padding-left:78px;position:fixed;top: 0">
+        <h1 style="font-family:cursive;font-size: 40px;top:0;line-height:80px;font-style:italic;color:rgba(230, 139, 54, 0.945);
+        padding-left:150px;float:left;position:fixed">
+            Fact Detector
+        </h1>
+
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About Us </a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}">Log Out</a></li>
+                {% else %}
+                <li><a href="{% url 'Registration' %}">Log In / Sign Up </a></li>
+                {% endif %}
+                <li><a href="{% url 'contact' %}">Contact Us</a></li>
+            </ul>
+        </nav>
+        {% block content %}
+        <center>
+            <form action="{% url 'result' %}">
+                {% csrf_token %}        
+                <div class="bar">
+                    <input class="searchbar" type="text"required name="data">
+                    <a href="#"> <img class="searchicon" src="{% static 'images/schicon1.png' %}"></a>
+                </div>
+                <input type="submit" name="" value="Submit" style="margin-top:-20px; padding:15px; font-size:medium; color:white; background-color:darkorange; border-radius:10px; border:hidden">
+                
+            </form>
+            
+        </center>
+        {% endblock %}
+
+    </div>
+
+    
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+<!--
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fact Detection</title>
+
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+    <style>
+        .bar {
+    margin: 250px;
+    width: 590px;
+    border-radius: 150px;
+    background-color: white;
+    border: 1px solid #615e5e;
+}
+.bar:hover {
+    box-shadow: 1px 1px 8px 1px none;
+}
+.bar:focus-within{
+            box-shadow: 1px 1px 8px 1px none;
+            outline:none;
+          }
+.searchbar {
+    padding-top:-10px;
+    height: 35px;
+    border: 2px;
+    width: 500px;
+    background-color: white;
+    font-size: 18px;
+    outline: none;
+}
+.searchicon {
+    height: 30px;
+    position: relative;
+    top: 5px;
+    left: 10px;
+}
+    </style>
+
+</head>
+<body>
+
+    <div class="main">
+        <img src="{% static 'images/Rightlogo.png' %}" style="width:70px;height:80px;padding-left:78px;position:fixed;top: 0">
+        <h1 style="font-family:cursive;font-size: 40px;top:0;line-height:80px;font-style:italic;color:rgba(230, 139, 54, 0.945);
+        padding-left:150px;float:left;position:fixed">
+            Fact Detector
+        </h1>
+
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About Us </a></li>
+                <li><a href="{% url 'Registration' %}">Log In / Sign Up </a></li>
+                <li><a href="{% url 'contact' %}">Contact Us</a></li>
+            </ul>
+        </nav>
+
+    </div>
+
+    <center>
+        <div class="bar">
+            <input class="searchbar" type="text" title="Search">
+            <a href="#"> <img class="searchicon" src="{% static 'images/schicon1.png' %}" title="Search"></a>
+        </div>
+    </center>
+
+</body>
+</html>
+
+
+-->

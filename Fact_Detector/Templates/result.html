@@ -1,0 +1,51 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+</head>
+<body>
+    <div class="main">
+        <img src="{% static 'images/Rightlogo.png' %}" style="width:70px;height:80px;padding-left:78px;position:fixed;top: 0">
+        <h1 style="font-family:cursive;font-size: 40px;top:0;line-height:80px;font-style:italic;color:rgba(230, 139, 54, 0.945);
+        padding-left:150px;float:left;position:fixed">
+            Fact Detector
+        </h1>
+
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About Us </a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}">Log Out</a></li>
+                {% else %}
+                <li><a href="{% url 'Registration' %}">Log In / Sign Up </a></li>
+                {% endif %}
+                <li><a href="{% url 'contact' %}">Contact Us</a></li>
+            </ul>
+        </nav>
+
+        {% block content %}
+
+        <h2 style="color:white; margin:50px 40px 0px 40px; padding:30px; background-color:darkorange; border-color:none; border-radius:10px;">News : </h2>
+        <h3 style="color:white; margin:5px 40px; padding:40px; background-color:darkorange; border-color:none; border-radius:10px;">{{data}}</h3>
+        <center>
+            <h1 style="margin:50px 600px; padding:20px; color:black; background-color:lightgreen; border-color:none; border-radius:20px;">{{ans}}</h1>
+        </center>
+        
+        {% endblock %}
+
+    </div>
+
+</body>
+</html>
+
+
+
+
+    
